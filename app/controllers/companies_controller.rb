@@ -30,7 +30,18 @@ class CompaniesController < ApplicationController
     else
       render :edit
     end
-  end  
+  end
+
+  def destroy
+    # Since we don't have any need to track object transaction
+    # Its better to use delete than destroy
+    if @company.delete
+      flash.merge!(alert: "Company, '#{@company.name}' has been deleted")
+    else
+      flash.merge!(error: "Something went wrong!")
+    end
+    redirect_to companies_path
+  end
 
   private
 
@@ -50,5 +61,5 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
-  
+
 end

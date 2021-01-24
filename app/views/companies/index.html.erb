@@ -1,15 +1,47 @@
 <div class="container py-5">
-  <h3>Companies</h3>
-  <%= link_to "+ Create a Company", new_company_path %><br>
-  <% if @companies.empty? %>
-  <p>No Companies Found</p>
-  <% else %>
-    <ul class="list-group my-5">
-      <% @companies.each do |company| %>
-        <a href="<%= company_path(company) %>" class="list-group-item list-group-item-action">
-          <%= company.name %>
-        </a>
+  <div class="row">
+    <h3 class="col-lg-6">Companies</h3>
+    <span class="col-lg-6 ">
+      <%= link_to new_company_path, class: 'float-right' do %>
+        <button type="button" class="btn btn-outline-primary">
+          + Create a Company
+        </button>
       <% end %>
-    </ul>
+    </span>
+  </div>
+  <br><br>
+  <% if @companies.empty? %>
+    <p>No Companies Found</p>
+  <% else %>
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td>
+              <%=
+                link_to company_path(company), class: 'list-group-item list-group-item-action' do 
+                  company.name
+                end
+              %>
+            </td>
+            <td>
+              <center>
+                <%= link_to company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class: "delete" do %>
+                  <button type="button" class="btn btn-outline-danger">
+                    Delete
+                  </button>
+                <% end %>
+              </center>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 </div>
