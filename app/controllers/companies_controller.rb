@@ -15,8 +15,11 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
+    #   flash.merge!(success: "Company, '#{@company.name}' has been created")
+    #   redirect_to companies_path
       redirect_to companies_path, notice: "Saved"
     else
+      flash.merge!(error: "Something went wrong!")
       render :new
     end
   end
@@ -26,8 +29,11 @@ class CompaniesController < ApplicationController
 
   def update
     if @company.update(company_params)
+      # flash.merge!(success: "Company, '#{@company.name}' has been updated")
+      # redirect_to companies_path
       redirect_to companies_path, notice: "Changes Saved"
     else
+      flash.merge!(error: "Something went wrong!")
       render :edit
     end
   end

@@ -1,5 +1,14 @@
 <div class="container py-5">
-  <h3>New Company</h3>
-  <%= link_to "< Companies", companies_path %>
+  <div class="row">
+    <h3 class="col-lg-6">New Company</h3>
+    <span class="col-lg-6 ">
+      <%= link_to companies_path, class: 'float-right' do %>
+        <button type="button" class="btn btn-outline-primary">
+          < Companies
+        </button>
+      <% end %>
+    </span>
+  </div>
+  <br><br>
   <%= render "form" %>
 </div>

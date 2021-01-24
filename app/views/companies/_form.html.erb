@@ -1,3 +1,10 @@
+<% if @company.errors.present? %>
+  <ul class="list-group">
+    <% @company.errors.each do |attribute, message| %>
+      <li class="list-group-item list-group-item-danger"><strong><%= attribute.to_s.titleize %></strong> <%= message %>.</li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="py-5">
   <%= form_for @company do |f| %>
 
@@ -53,7 +60,7 @@
       </div>
       <div class="col-lg offset-lg-1">
         <div class="form-group">
-          <%= f.text_field :email, class: "form-control", placeholder: "hello@company.com"%>
+          <%= f.email_field :email, class: "form-control", placeholder: "Should be in 'XXXX@getmainstreet.com' format", pattern: '^([a-zA-Z0-9_.+-])+@getmainstreet.com$' %>
         </div>
       </div>
     </div>
