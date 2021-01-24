@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
     #   redirect_to companies_path
       redirect_to companies_path, notice: "Saved"
     else
-      flash.merge!(error: "Something went wrong!")
+      flash.merge!(error: "Error while saving!")
       render :new
     end
   end
@@ -33,7 +33,7 @@ class CompaniesController < ApplicationController
       # redirect_to companies_path
       redirect_to companies_path, notice: "Changes Saved"
     else
-      flash.merge!(error: "Something went wrong!")
+      flash.merge!(error: "Error while saving!")
       render :edit
     end
   end
