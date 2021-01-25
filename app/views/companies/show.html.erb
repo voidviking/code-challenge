@@ -1,14 +1,23 @@
 <div class="container py-5">
   <h3>Company</h3>
   <div class="row">
-    <div class="col">
-      <%= link_to "< Companies", companies_path %>
+    <div class="col-md-6">
+      <%= link_to companies_path do %>
+        <button type="button" class="btn btn-outline-primary">
+          < Companies
+        </button>
+      <% end %>
     </div>
-    <div class="col text-right">
-      <%= link_to "Edit", edit_company_path %>
+    <div class="col-md-6 float-right">
+      <%= link_to edit_company_path(@company), class: 'float-right' do %>
+        <button type="button" class="btn btn-outline-secondary">
+          Edit
+        </button>
+      <% end %>
     </div>
   </div>
-  <div class="bg-success">
+  <br><br>
+  <div style="background-color: <%= @company.color_code %> !important;">
     <div class="container p-5 text-white">
       <h1><%= @company.name %></h1>
       <h3><%= "#{@company.city}, #{@company.state}" %></h3>
@@ -35,7 +44,7 @@
     </div>
   </div>
 
-  <div class="bg-success text-white text-center py-3">
+  <div class="text-white text-center py-3" style="background-color: <%= @company.color_code %> !important;">
     <p class="lead"><%= @company.phone %> — <%= @company.email %></p>
   </div>
 </div>

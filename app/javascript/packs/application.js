@@ -10,7 +10,7 @@ require("channels");
 
 import "css/site";
 
-import "bootstrap";
+require("bootstrap");
 
 require("trix");
 require("@rails/actiontext");

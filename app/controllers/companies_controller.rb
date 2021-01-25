@@ -60,6 +60,7 @@ class CompaniesController < ApplicationController
       :phone,
       :email,
       :owner_id,
+      :color_code,
       services: []
     )
   end

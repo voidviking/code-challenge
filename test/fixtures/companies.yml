@@ -6,6 +6,7 @@ hometown_painting:
   services: "{Interior Painting, Commercial Painting}"
   city: "Atlanta"
   state: "GA"
+  color_code: "#783de6"
 
 wolf_painting:
   name: "Wolf Painting"
@@ -15,6 +16,7 @@ wolf_painting:
   services: "{Interior Painting, Commercial Painting, Exterior Painting}"
   city: "Phoenix"
   state: "AZ"
+  color_code: "#f02431"
 
 thompson_patining:
   name: "Thompson Family Painting"
@@ -24,6 +26,7 @@ thompson_patining:
   services: "{Interior Painting, Exterior Painting}"
   city: "Nashville"
   state: "TN"
+  color_code: "#f28136"
 
 armstrong_painting:
   name: "Armstrong Painting"
@@ -33,6 +36,7 @@ armstrong_painting:
   services: "{Interior Painting, Commercial Painting, Exterior Painting}"
   city: "Sacramento"
   state: "CA"
+  color_code: "#392de6"
 
 marcus_painting:
   name: "Marcus Paint"
@@ -42,6 +46,7 @@ marcus_painting:
   services: "{Exterior Painting}"
   city: "Denver"
   state: "CO"
+  color_code: "#6c3d41"
 
 brown_painting:
   name: "Brown Residential Painting"
@@ -51,3 +56,4 @@ brown_painting:
   services: "{Interior Painting}"
   city: "Honolulu"
   state: "HI"
+  color_code: "#c8511e"

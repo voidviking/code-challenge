@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <center>
+      <div style="background-color: <%= company.color_code %> !important; height: 25px; width: 25px; border-radius: 50%; display: inline-block;"></div>
+    </center>
+  </td>
+  <td>
+    <%=
+      link_to company_path(company), class: 'list-group-item list-group-item-action' do 
+        company.name
+      end
+    %>
+  </td>
+  <td>
+    <center>
+      <%= link_to edit_company_path(company), style: 'margin: 5px;' do %>
+        <button type="button" class="btn btn-outline-secondary">
+          Edit
+        </button>
+      <% end %>&nbsp;|&nbsp;
+      <%= link_to company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete', style: 'margin: 5px;' do %>
+        <button type="button" class="btn btn-outline-danger">
+          Delete
+        </button>
+      <% end %>
+    </center>
+  </td>
+</tr>

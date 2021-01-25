@@ -7,15 +7,14 @@ class Company < ApplicationRecord
     with: /\A([a-zA-Z0-9_.+-])+@getmainstreet.com\z/,
     message: "should be within 'getmainstreet.com' domain"
   }, allow_blank: true
+  validates :color_code, format: {
+    with: /\A#([A-Fa-f0-9]{6})\z/,
+    message: "# must be followed by a valid 6 character hexadecimal code"
+  }, allow_blank: false
 
   before_save :set_city_and_state, if: :zip_code_changed?
 
   def set_city_and_state
-    if zip_code.blank?
-      self.city = nil
-      self.state = nil
-      return true
-    end
     zipcode_info = ZipCodes.identify(zip_code)
     if zipcode_info.present?
       self.city = zipcode_info.fetch(:city)

@@ -16,31 +16,13 @@
     <table class="table table-hover table-bordered">
       <thead class="thead-dark">
         <tr>
+          <th scope="col">Color</th>
           <th scope="col">Name</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% @companies.each do |company| %>
-          <tr>
-            <td>
-              <%=
-                link_to company_path(company), class: 'list-group-item list-group-item-action' do 
-                  company.name
-                end
-              %>
-            </td>
-            <td>
-              <center>
-                <%= link_to company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class: "delete" do %>
-                  <button type="button" class="btn btn-outline-danger">
-                    Delete
-                  </button>
-                <% end %>
-              </center>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: 'snippet', collection: @companies, as: :company %>
       </tbody>
     </table>
   <% end %>
