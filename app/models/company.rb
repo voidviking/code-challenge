@@ -1,15 +1,22 @@
+# frozen_string_literal: true
+
+# holds typical active record process
 class Company < ApplicationRecord
   has_rich_text :description
 
   validates_presence_of :name, :zip_code
   validates_length_of :zip_code, is: 5, message: 'should contain 5 digits'
+  validates :phone, format: {
+    with: /\A[6-9]\d{9}\z/,
+    message: 'Should be valid 10 digit mobile number'
+  }, allow_blank: true
   validates :email, format: {
     with: /\A([a-zA-Z0-9_.+-])+@getmainstreet.com\z/,
-    message: "should be within 'getmainstreet.com' domain"
+    message: 'should be within 'getmainstreet.com' domain'
   }, allow_blank: true
   validates :color_code, format: {
     with: /\A#([A-Fa-f0-9]{6})\z/,
-    message: "# must be followed by a valid 6 character hexadecimal code"
+    message: '# must be followed by a valid 6 character hexadecimal code'
   }, allow_blank: false
 
   before_save :set_city_and_state, if: :zip_code_changed?

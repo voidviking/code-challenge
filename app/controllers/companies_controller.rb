@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# used to manipulate Company's records
 class CompaniesController < ApplicationController
-  before_action :set_company, except: [:index, :create, :new]
+  before_action :set_company, except: %i[index create new]
 
   def index
     @companies = Company.all
@@ -9,31 +12,25 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @company = Company.new(company_params)
     if @company.save
-    #   flash.merge!(success: "Company, '#{@company.name}' has been created")
-    #   redirect_to companies_path
-      redirect_to companies_path, notice: "Saved"
+      redirect_to companies_path, notice: 'Saved'
     else
-      flash.merge!(error: "Error while saving!")
+      flash.merge!(error: 'Error while saving!')
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @company.update(company_params)
-      # flash.merge!(success: "Company, '#{@company.name}' has been updated")
-      # redirect_to companies_path
-      redirect_to companies_path, notice: "Changes Saved"
+      redirect_to companies_path, notice: 'Changes Saved'
     else
-      flash.merge!(error: "Error while saving!")
+      flash.merge!(error: 'Error while saving!')
       render :edit
     end
   end
@@ -44,7 +41,7 @@ class CompaniesController < ApplicationController
     if @company.delete
       flash.merge!(alert: "Company, '#{@company.name}' has been deleted")
     else
-      flash.merge!(error: "Something went wrong!")
+      flash.merge!(error: 'Something went wrong!')
     end
     redirect_to companies_path
   end
@@ -56,10 +53,8 @@ class CompaniesController < ApplicationController
       :name,
       :legal_name,
       :description,
-      :zip_code,
-      :phone,
-      :email,
-      :owner_id,
+      :zip_code, :phone,
+      :email, :owner_id,
       :color_code,
       services: []
     )
@@ -68,5 +63,4 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
-
 end
