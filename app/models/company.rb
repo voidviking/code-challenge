@@ -12,7 +12,7 @@ class Company < ApplicationRecord
   }, allow_blank: true
   validates :email, format: {
     with: /\A([a-zA-Z0-9_.+-])+@getmainstreet.com\z/,
-    message: 'should be within 'getmainstreet.com' domain'
+    message: "should be within 'getmainstreet.com' domain"
   }, allow_blank: true
   validates :color_code, format: {
     with: /\A#([A-Fa-f0-9]{6})\z/,

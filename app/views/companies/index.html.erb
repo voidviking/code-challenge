@@ -23,6 +23,11 @@
       </thead>
       <tbody>
         <%= render partial: 'snippet', collection: @companies, as: :company %>
+        <tr>
+          <td colspan="3">
+            <%== pagy_bootstrap_nav(@pagy) %>
+          </td>
+        </tr>
       </tbody>
     </table>
   <% end %>

@@ -5,7 +5,8 @@ class CompaniesController < ApplicationController
   before_action :set_company, except: %i[index create new]
 
   def index
-    @companies = Company.all
+    Pagy::VARS[:items] = 10
+    @pagy, @companies = pagy(Company.all)
   end
 
   def new
