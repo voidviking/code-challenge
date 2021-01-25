@@ -31,7 +31,9 @@
     <div class="col-12 col-lg-4 pt-lg-5">
       <h4>Services</h4>
       <% @company.services.reject(&:blank?).each do |service| %>
-        <p><%= service %></p>
+        <p>
+          <%= service %>
+        </p>
       <% end %>
       <h4>Contact</h4>
         <div class="form-group" data-controller="clipboard">
